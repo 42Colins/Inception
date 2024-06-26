@@ -1,0 +1,22 @@
+FROM debian:bullseye
+
+RUN apt update -y
+RUN apt upgrade -y
+
+RUN apt install mariadb-server -y
+
+COPY conf/mariadb.conf /etc/mysql/mariadb.conf.f/50-server.cnf
+
+COPY tools/script.sh /home/
+
+ARG MARIADB_ROOT_PASSWORD
+ARG MARIADB_USER
+ARG MARIADB_PASSWORD
+ARG MARIADB_DATABASE
+
+ENV MARIADB_ROOT_PASSWORD MARIADB_ROOT_PASSWORD
+ENV MARIADB_USER MARIADB_USER
+ENV MARIADB_PASSWORD MARIADB_PASSWORD
+ENV MARIADB_DATABASE MARIADB_DATABASE
+
+CMD ["sh", "/home/script.sh"]
