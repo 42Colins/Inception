@@ -5,8 +5,8 @@ RUN apt upgrade -y
 
 RUN apt install mariadb-server -y
 
-COPY conf/50-server.cnf /etc/mysql/mariadb.conf.f/50-server.cnf
+COPY conf/50-server.conf /etc/mysql/mariadb.conf.d/50-server.cnf
 
-COPY tools/script.sh /home/
+COPY tools/script.sh ./script.sh
 
-CMD ["sh", "/home/script.sh"]
+CMD ["sh", "./script.sh"]

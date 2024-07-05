@@ -51,13 +51,13 @@ volumes:
     driver_opts:
      type: 'none'
      o: 'bind'
-     device: '/home/cprojean/data/wordpress'
+     device: '/Users/colinprojean/data/wordpress'
   mariadb:
     driver: local
     driver_opts:
      type: 'none'
      o: 'bind'
-     device: '/home/cprojean/data/mariadb'
+     device: '/Users/colinprojean/data/mariadb'
 
 networks:
   inception:
